@@ -25,11 +25,24 @@ AUTH_ENV = {
 }
 
 
+# Hosted defaults (2026-07-14): the August tenant/client IDs and API scope are Microsoft
+# public-client identifiers — designed to ship inside distributed apps; possessing them
+# grants nothing without an allowlisted August sign-in. Baked in so a fresh marketplace
+# install needs zero manual configuration. Env vars and ~/.august config override them.
+_HOSTED_DEFAULTS = {
+    "base_url": "https://ca-investment-brain-prod.agreeableriver-6ba0fa10.canadacentral.azurecontainerapps.io/api",
+    "tenant_id": "bfe93e12-adc8-4e35-a27f-5766c091a90a",
+    "client_id": "ad103a26-b265-4bbf-89cd-a8b34dd8c11d",
+    "api_scope": "api://ad103a26-b265-4bbf-89cd-a8b34dd8c11d/access_as_user",
+}
+
+
 def _config() -> dict:
     path = Path(os.environ.get("BRAIN_CONFIG_FILE", "") or Path.home() / ".august" / "investment-brain" / "config.json")
     if path.exists():
-        return json.loads(path.read_text(encoding="utf-8"))
-    return {}
+        loaded = json.loads(path.read_text(encoding="utf-8"))
+        return {**_HOSTED_DEFAULTS, **{k: v for k, v in loaded.items() if v not in (None, "")}}
+    return dict(_HOSTED_DEFAULTS)
 
 
 def _static_key(config: dict) -> str | None:

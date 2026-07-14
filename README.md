@@ -8,9 +8,11 @@ private per-user investment profile.
 
 This repository contains **only the client**: skill instructions and a thin
 authenticated API script. It holds no investment data, no credentials, and no server
-code. All data lives behind August's hosted API, which requires a Microsoft Entra
-sign-in from the August tenant **and** per-user allowlisting. Installing these skills
-without that access authenticates nothing and returns nothing.
+code. The connection identifiers baked into the client are Microsoft public-client
+values (designed to ship inside distributed apps); they grant nothing by themselves.
+All data lives behind August's hosted API, which requires a Microsoft Entra sign-in
+from the August tenant **and** per-user allowlisting. Installing these skills without
+that access authenticates nothing and returns nothing.
 
 ## Install (Claude Code)
 
@@ -19,19 +21,17 @@ without that access authenticates nothing and returns nothing.
 /plugin install august-investment-brain@august-investment-brain
 ```
 
-Then configure the endpoint (values provided internally; they are standard
-public-client identifiers, not secrets — see `plugins/august-investment-brain/HOSTED-AUTH.md`):
+No configuration needed. Ask any investment question (e.g. "what are our active
+directs"); a Microsoft sign-in opens in your browser on first use. Sign in with your
+August account. If your account is not provisioned for the Brain, ask
+Cal Shannon (cal@augustgroup.com).
 
-```powershell
-./plugins/august-investment-brain/scripts/install.ps1 `
-  -BrainApiUrl "<provided internally>" `
-  -EntraTenantId "<provided internally>" `
-  -EntraClientId "<provided internally>" `
-  -ApiScope "<provided internally>"
-```
+If sign-in reports a missing MSAL package, run:
+`python -m pip install --user "msal>=1.31,<2"`
 
-First use opens a Microsoft sign-in in your browser. If your account is not
-provisioned for the Brain, ask Cal Shannon (cal@augustgroup.com).
+Advanced: environment variables (`BRAIN_API_URL`, `BRAIN_ENTRA_TENANT_ID`,
+`BRAIN_ENTRA_CLIENT_ID`, `BRAIN_API_SCOPE`) or `~/.august/investment-brain/config.json`
+override the baked-in defaults — see `plugins/august-investment-brain/HOSTED-AUTH.md`.
 
 ## Skills included
 
