@@ -1,0 +1,4 @@
+interface:
+  display_name: "Deal Screen"
+  short_description: "Screen a new deal against August memory"
+  default_prompt: "Use $deal-screen for this investment workflow."

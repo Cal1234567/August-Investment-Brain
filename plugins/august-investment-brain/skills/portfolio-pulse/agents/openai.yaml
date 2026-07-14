@@ -1,0 +1,4 @@
+interface:
+  display_name: "Portfolio Pulse"
+  short_description: "Show what moved across the active book"
+  default_prompt: "Use $portfolio-pulse for this investment workflow."

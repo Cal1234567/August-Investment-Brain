@@ -1,0 +1,4 @@
+interface:
+  display_name: "Diligence Next"
+  short_description: "Rank the next diligence proof points"
+  default_prompt: "Use $diligence-next for this investment workflow."

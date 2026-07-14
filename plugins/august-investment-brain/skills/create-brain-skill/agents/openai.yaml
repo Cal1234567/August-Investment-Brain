@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Brain Skill"
+  short_description: "Build custom skills on the hosted Brain"
+  default_prompt: "Use $create-brain-skill to build a custom Investment Brain workflow."

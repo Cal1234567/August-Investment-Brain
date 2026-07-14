@@ -1,0 +1,4 @@
+interface:
+  display_name: "Investment Brain"
+  short_description: "Query August investment memory with citations"
+  default_prompt: "Use $investment-brain to give me August's current read on a company."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Investment Onboarding"
+  short_description: "Create your private investment working profile"
+  default_prompt: "Use $investment-onboarding to set up my Investment Brain profile."

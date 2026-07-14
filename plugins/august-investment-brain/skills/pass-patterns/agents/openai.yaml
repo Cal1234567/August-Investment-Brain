@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pass Patterns"
+  short_description: "Find recurring patterns in August passed deals"
+  default_prompt: "Use $pass-patterns for this investment workflow."

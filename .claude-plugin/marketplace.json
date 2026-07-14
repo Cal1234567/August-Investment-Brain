@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace-schema.json",
+  "name": "august-investment-brain",
+  "description": "August Group Investment Brain — authenticated analyst skills marketplace.",
+  "version": "2.0.0",
+  "owner": {
+    "name": "August Group"
+  },
+  "plugins": [
+    {
+      "name": "august-investment-brain",
+      "displayName": "August Investment Brain",
+      "source": "./plugins/august-investment-brain",
+      "description": "Authenticated access to August's shared investment memory: analyst reads, portfolio pulse and watch, deal screens, diligence workflows, and a private per-user investment profile. Requires an August Microsoft sign-in; access is allowlisted.",
+      "version": "2.0.0",
+      "author": {
+        "name": "August Group"
+      },
+      "category": "Investments",
+      "tags": [
+        "investments",
+        "analyst",
+        "portfolio",
+        "diligence",
+        "memory"
+      ]
+    }
+  ]
+}

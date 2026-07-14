@@ -1,0 +1,4 @@
+interface:
+  display_name: "Log Decision"
+  short_description: "Capture an explicit August investment decision"
+  default_prompt: "Use $log-decision for this investment workflow."

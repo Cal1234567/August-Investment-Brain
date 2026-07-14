@@ -1,0 +1,4 @@
+interface:
+  display_name: "Team View"
+  short_description: "Synthesize attributed team views and cruxes"
+  default_prompt: "Use $team-view for this investment workflow."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Investment Red Team"
+  short_description: "Argue the August pass case with evidence"
+  default_prompt: "Use $red-team for this investment workflow."

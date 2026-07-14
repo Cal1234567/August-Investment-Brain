@@ -1,0 +1,4 @@
+interface:
+  display_name: "August Investments"
+  short_description: "Work in August's shared investment standard"
+  default_prompt: "Use $investments to analyze this deal in August's investment register."

@@ -1,0 +1,37 @@
+{
+  "name": "august-investment-brain",
+  "version": 2,
+  "skills": [
+    "investment-brain",
+    "investment-onboarding",
+    "create-brain-skill",
+    "investments",
+    "deal-screen",
+    "diligence-next",
+    "investment-brain-diligence-comps",
+    "pass-patterns",
+    "portfolio-pulse",
+    "portfolio-watch",
+    "red-team",
+    "team-view",
+    "what-did-we-know",
+    "log-decision"
+  ],
+  "excluded_private": [
+    "builder",
+    "thinker",
+    "writing",
+    "personal-brain",
+    "codex-delegation",
+    "diary",
+    "worldview"
+  ],
+  "excluded_admin_until_authorized": [
+    "investment-brain-ingest",
+    "verify-session",
+    "story-update",
+    "diligence-thoughts",
+    "brain-checkup",
+    "analyst-eval"
+  ]
+}

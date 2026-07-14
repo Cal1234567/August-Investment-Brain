@@ -1,0 +1,4 @@
+interface:
+  display_name: "Diligence Comps"
+  short_description: "Compare a target with August diligence memory"
+  default_prompt: "Use $investment-brain-diligence-comps for this investment workflow."

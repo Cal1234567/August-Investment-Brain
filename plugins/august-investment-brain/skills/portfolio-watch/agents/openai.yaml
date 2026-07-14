@@ -1,0 +1,4 @@
+interface:
+  display_name: "Portfolio Watch"
+  short_description: "Check thesis drift for one company"
+  default_prompt: "Use $portfolio-watch for this investment workflow."
