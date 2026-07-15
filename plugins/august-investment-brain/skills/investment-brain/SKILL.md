@@ -7,7 +7,7 @@ description: Query the shared August Investment Brain through its authenticated 
 
 ## First-use gate (required)
 
-Use `scripts/brain_api.py` for every request. Resolve that path relative to this SKILL.md, never relative to the user's working directory. Never print credentials or ask the user to paste one into chat.
+Use `scripts/brain_api.py` for every request. Resolve that path relative to this SKILL.md, never relative to the user's working directory. Never print credentials or ask the user to paste one into chat. If a call fails because MSAL is missing, run `python -m pip install --user "msal>=1.31,<2"` yourself and retry once.
 
 1. At the start of an investment task, silently call `python scripts/brain_api.py profile get`. This is the progressive-disclosure pull for the authenticated user's compact investment profile; do not load any local general-purpose Personal Brain.
    - Apply `answer_preferences`, `working_preferences`, `tools_outputs`, and `always_keep_in_mind` to emphasis, format, and explanation depth.

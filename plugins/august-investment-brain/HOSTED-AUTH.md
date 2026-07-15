@@ -4,7 +4,7 @@ The distributed client is a public/native client. It never contains a client
 secret. The first hosted request opens Microsoft's system-browser sign-in so
 Conditional Access can evaluate the device. Later requests use silent refresh.
 
-Install and configure with the non-secret application values:
+Since 2026-07-14 the hosted defaults (API URL, tenant, client ID, scope) are baked into `skills/investment-brain/scripts/brain_api.py` — a fresh install needs NO configuration. The installer below is only for overriding those defaults (e.g. a test server or local API-key mode):
 
 ```powershell
 ./scripts/install.ps1 `
