@@ -1,5 +1,8 @@
 # August Investment Brain — skills marketplace
 
+> **Generated repo — do not edit here.** The plugin is edited in the private investment-brain monorepo (distribution/plugins/august-investment-brain) and synced with distribution/sync-channel.ps1. Direct edits will be overwritten by the next sync.
+# August Investment Brain — skills marketplace
+
 Client-side skills for August Group's Investment Brain: analyst reads over shared
 company memory, portfolio pulse and watch, deal screens, diligence workflows, and a
 private per-user investment profile.
