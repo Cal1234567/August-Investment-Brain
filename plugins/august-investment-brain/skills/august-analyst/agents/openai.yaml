@@ -1,0 +1,4 @@
+interface:
+  display_name: "August Analyst"
+  short_description: "Work in August's shared investment-analysis standard"
+  default_prompt: "Use $august-analyst to analyze this deal in August's investment standard."

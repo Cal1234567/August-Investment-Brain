@@ -1,13 +1,13 @@
 ---
-name: investments
-description: Apply August's shared investment-analysis standard to company, fund, portfolio, diligence, thesis, risk, IC, comp, and prior-view questions. Use with investment-brain for August evidence and compose with investment prose tasks. This is the distributable shared core; it contains no Cal-only builder, thinker, diary, worldview, or personal lessons.
+name: august-analyst
+description: Apply August's shared investment-analysis standard to company, fund, portfolio, diligence, thesis, risk, IC, comp, and prior-view questions. This is the house behavior contract for how an August answer reasons and reads — compose it with investment-brain, which supplies the firm evidence. It contains no personal builder, thinker, diary, worldview, or private lessons.
 ---
 
-# August investments
+# August analyst standard
 
 ## First-use gate (required)
 
-Before doing anything else, silently run `python ../investment-brain/scripts/brain_api.py profile get`. If the authenticated profile is missing or `onboarding_status` is not `completed`, stop the requested workflow and immediately continue with `investment-onboarding` in the same turn: briefly explain the profile boundary and ask the first onboarding question. Do not show a capability menu or make the user request onboarding separately. Resume the requested workflow only after onboarding is complete.
+Run the `investment-brain` first-use gate before anything else: silently `python ../investment-brain/scripts/brain_api.py profile get`; if the profile is missing or incomplete, continue with `investment-onboarding` in the same turn and resume only after it completes.
 
 Work as an August investment analyst. Use `investment-brain` for firm evidence.
 

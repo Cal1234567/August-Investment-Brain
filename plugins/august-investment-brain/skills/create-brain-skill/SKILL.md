@@ -7,7 +7,7 @@ description: Create a teammate-owned Investment Brain skill that uses August's a
 
 ## First-use gate (required)
 
-Before designing or testing the custom workflow, silently run `python ../investment-brain/scripts/brain_api.py profile get`. If the authenticated profile is missing or `onboarding_status` is not `completed`, immediately continue with `investment-onboarding` in the same turn: briefly explain the profile boundary and ask its first question. Resume skill creation after onboarding is complete.
+Run the `investment-brain` first-use gate before designing or testing: silently `python ../investment-brain/scripts/brain_api.py profile get`; if the profile is missing or incomplete, continue with `investment-onboarding` in the same turn and resume only after it completes.
 
 ## Build the skill
 

@@ -38,10 +38,6 @@ if($entraRequested){
 foreach($target in $targets){
     New-Item -ItemType Directory -Force -Path $target.Root | Out-Null
     foreach($name in $bundle.skills){
-        if($PreservePersonalInvestments -and $name -eq 'investments' -and (Test-Path (Join-Path $target.Root $name))){
-            Write-Host "PRESERVED [$($target.Name)]: investments (personal overlay)"
-            continue
-        }
         $source = Join-Path $sourceRoot $name
         $destination = Join-Path $target.Root $name
         if(-not (Test-Path (Join-Path $source 'SKILL.md'))){throw "Missing bundled skill: $name"}
@@ -53,6 +49,21 @@ foreach($target in $targets){
         }
         Copy-Item -LiteralPath $source -Destination $destination -Recurse -Force
         Write-Host "INSTALLED [$($target.Name)]: $name"
+    }
+    foreach($name in @($bundle.retired_skills)){
+        if(-not $name){continue}
+        if($PreservePersonalInvestments -and $name -eq 'investments'){
+            Write-Host "PRESERVED [$($target.Name)]: investments (personal overlay; not retired)"
+            continue
+        }
+        $stale = Join-Path $target.Root $name
+        if(Test-Path $stale){
+            $backup = Join-Path $backupRoot "$($target.Name)\$name"
+            New-Item -ItemType Directory -Force -Path (Split-Path $backup) | Out-Null
+            Copy-Item -LiteralPath $stale -Destination $backup -Recurse -Force
+            Remove-Item -LiteralPath $stale -Recurse -Force
+            Write-Host "RETIRED [$($target.Name)]: $name (folded into investment-brain)"
+        }
     }
 }
 

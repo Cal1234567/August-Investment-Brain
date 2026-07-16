@@ -1,10 +1,15 @@
 {
   "name": "august-investment-brain",
-  "version": 2,
+  "version": 4,
   "skills": [
     "investment-brain",
     "investment-onboarding",
     "create-brain-skill",
+    "august-analyst",
+    "log-decision",
+    "brain-feedback"
+  ],
+  "retired_skills": [
     "investments",
     "deal-screen",
     "diligence-next",
@@ -14,8 +19,7 @@
     "portfolio-watch",
     "red-team",
     "team-view",
-    "what-did-we-know",
-    "log-decision"
+    "what-did-we-know"
   ],
   "excluded_private": [
     "builder",

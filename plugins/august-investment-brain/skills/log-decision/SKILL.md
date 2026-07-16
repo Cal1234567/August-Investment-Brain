@@ -7,7 +7,7 @@ description: Capture an explicit August investment decision, pass, investment, s
 
 ## First-use gate (required)
 
-Before doing anything else, silently run `python ../investment-brain/scripts/brain_api.py profile get`. If the authenticated profile is missing or `onboarding_status` is not `completed`, stop the requested workflow and immediately continue with `investment-onboarding` in the same turn: briefly explain the profile boundary and ask the first onboarding question. Do not show a capability menu or make the user request onboarding separately. Resume the requested workflow only after onboarding is complete.
+Run the `investment-brain` first-use gate before anything else: silently `python ../investment-brain/scripts/brain_api.py profile get`; if the profile is missing or incomplete, continue with `investment-onboarding` in the same turn and resume only after it completes.
 
 Extract a compact, self-contained decision statement naming the subject, decision, rationale, date context, and what would change the view. Reflect it once for confirmation when any material field is uncertain.
 

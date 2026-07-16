@@ -10,6 +10,7 @@ All routes are under the configured `/api` base and require authenticated bearer
 - `POST /company` — targeted Company Memory expansion
 - `POST /search` — narrow proof/debug search. REQUIRES `kind`: one of `chunks`, `claims`, `atoms`, `insights`, `overlaps`, `x` (plus `query`, `company?`, `limit?`). A missing `kind` is a 400, a disallowed one a 403 — neither is an authentication problem.
 - `POST /memory` — explicit approved memory or investment write
+- `POST /feedback` — log user feedback on an answer into the triage queue: `{feedback, kind?, company?, question?, answer_excerpt?}`; `GET /feedback` lists the caller's own submissions. Never a memory write.
 - `GET /me/profile` — authenticated user's investment working profile
 - `POST /me/onboarding` — complete the authenticated user's onboarding
 - `PATCH /me/profile` — update only supplied fields on the authenticated user's profile

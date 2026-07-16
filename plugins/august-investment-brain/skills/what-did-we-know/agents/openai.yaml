@@ -1,4 +1,0 @@
-interface:
-  display_name: "What Did We Know"
-  short_description: "Reconstruct knowledge as of a past date"
-  default_prompt: "Use $what-did-we-know for this investment workflow."

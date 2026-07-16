@@ -9,7 +9,6 @@ foreach($name in $bundle.skills){
     $a=Join-Path $claude "$name\SKILL.md"
     $b=Join-Path $codex "$name\SKILL.md"
     if(-not (Test-Path $a) -or -not (Test-Path $b)){$failures += "$name missing"; continue}
-    if($AllowPersonalInvestments -and $name -eq 'investments'){continue}
     if((Get-FileHash $a).Hash -ne (Get-FileHash $b).Hash){$failures += "$name differs between platforms"}
 }
 if($failures.Count){$failures | ForEach-Object {Write-Error $_}; exit 1}

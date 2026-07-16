@@ -1,0 +1,4 @@
+interface:
+  display_name: "Brain Feedback"
+  short_description: "Flag a wrong or incomplete Investment Brain answer for triage"
+  default_prompt: "Use $brain-feedback to report that this Brain answer was wrong."
