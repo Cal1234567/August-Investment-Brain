@@ -47,7 +47,7 @@ if(-not $claudeViaPlugin){
 }
 
 $targets = @(
-    @{ Name='Codex'; Root=(Join-Path ($env:CODEX_HOME ?? (Join-Path $env:USERPROFILE '.codex')) 'skills') }
+    @{ Name='Codex'; Root=(Join-Path $(if($env:CODEX_HOME){$env:CODEX_HOME}else{Join-Path $env:USERPROFILE '.codex'}) 'skills') }
 )
 if(-not $claudeViaPlugin){
     $targets = @(@{ Name='Claude'; Root=(Join-Path $env:USERPROFILE '.claude\skills') }) + $targets
