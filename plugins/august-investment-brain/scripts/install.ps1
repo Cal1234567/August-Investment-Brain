@@ -74,19 +74,32 @@ if($entraRequested){
 
 # Migration: earlier installs copied skills into ~/.claude/skills as raw files.
 # Once the plugin owns them, those copies shadow the plugin's versions and never
-# update — back them up and remove them.
+# update — back them up and remove them. Delete scope is deliberately hard-bounded:
+# only names from bundle.json, only plain folder names (no separators/dot-dot),
+# only directories sitting DIRECTLY under ~/.claude/skills, always backed up first.
+function Test-SafeSkillName([string]$name){
+    return $name -and ($name -notmatch '[\\/]') -and ($name -ne '.') -and ($name -ne '..')
+}
 if($claudeViaPlugin){
     $claudeSkillsRoot = Join-Path $env:USERPROFILE '.claude\skills'
     foreach($name in (@($bundle.skills) + @($bundle.retired_skills))){
-        if(-not $name){continue}
+        if(-not (Test-SafeSkillName $name)){
+            if($name){Write-Host "SKIPPED (unsafe name, not touching): $name"}
+            continue
+        }
         if($PreservePersonalInvestments -and $name -eq 'investments'){continue}
         $stale = Join-Path $claudeSkillsRoot $name
-        if(Test-Path $stale){
+        if(Test-Path -LiteralPath $stale -PathType Container){
+            $resolved = (Resolve-Path -LiteralPath $stale).Path
+            if((Split-Path -Parent $resolved) -ne (Resolve-Path -LiteralPath $claudeSkillsRoot).Path){
+                Write-Host "SKIPPED (outside skills root, not touching): $name"
+                continue
+            }
             $backup = Join-Path $backupRoot "Claude\$name"
             New-Item -ItemType Directory -Force -Path (Split-Path $backup) | Out-Null
-            Copy-Item -LiteralPath $stale -Destination $backup -Recurse -Force
-            Remove-Item -LiteralPath $stale -Recurse -Force
-            Write-Host "MIGRATED [Claude]: $name (raw copy removed; plugin owns it now)"
+            Copy-Item -LiteralPath $resolved -Destination $backup -Recurse -Force
+            Remove-Item -LiteralPath $resolved -Recurse -Force
+            Write-Host "MIGRATED [Claude]: $name (raw copy backed up + removed; plugin owns it now)"
         }
     }
 }

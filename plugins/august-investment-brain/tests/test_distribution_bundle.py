@@ -10,7 +10,17 @@ SKILLS = ROOT / "skills"
 
 forbidden_names = {"builder", "thinker", "writing", "personal-brain", "codex-delegation"}
 assert not forbidden_names.intersection(BUNDLE["skills"])
-assert "create-brain-skill" in BUNDLE["skills"], "custom skill creator must ship with the plugin"
+expected_skills = [
+    "investment-brain",
+    "investment-onboarding",
+    "august-analyst",
+    "log-decision",
+    "brain-feedback",
+]
+assert BUNDLE["skills"] == expected_skills, f"unexpected active skill set: {BUNDLE['skills']}"
+assert not set(BUNDLE["skills"]).intersection(BUNDLE["retired_skills"]), "active and retired skills overlap"
+skill_directories = sorted(path.name for path in SKILLS.iterdir() if (path / "SKILL.md").exists())
+assert skill_directories == sorted(expected_skills), f"orphan or missing skill directories: {skill_directories}"
 
 for name in BUNDLE["skills"]:
     folder = SKILLS / name
