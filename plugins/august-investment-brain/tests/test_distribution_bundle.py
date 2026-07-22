@@ -16,6 +16,7 @@ expected_skills = [
     "august-analyst",
     "log-decision",
     "brain-feedback",
+    "capture-the-book",
 ]
 assert BUNDLE["skills"] == expected_skills, f"unexpected active skill set: {BUNDLE['skills']}"
 assert not set(BUNDLE["skills"]).intersection(BUNDLE["retired_skills"]), "active and retired skills overlap"

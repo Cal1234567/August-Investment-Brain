@@ -1,12 +1,13 @@
 {
   "name": "august-investment-brain",
-  "version": 5,
+  "version": 6,
   "skills": [
     "investment-brain",
     "investment-onboarding",
     "august-analyst",
     "log-decision",
-    "brain-feedback"
+    "brain-feedback",
+    "capture-the-book"
   ],
   "retired_skills": [
     "create-brain-skill",

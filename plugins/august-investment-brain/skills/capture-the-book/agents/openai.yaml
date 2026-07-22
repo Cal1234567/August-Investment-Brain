@@ -1,0 +1,4 @@
+interface:
+  display_name: "Capture the Book"
+  short_description: "Posed-inference interview that harvests directs house style into Brain memory"
+  default_prompt: "Use $capture-the-book to run a capture session."
